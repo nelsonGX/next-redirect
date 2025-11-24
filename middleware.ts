@@ -20,6 +20,10 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  if (!redirectConfig.title) {
+    return NextResponse.redirect(redirectConfig.redirect_to, 301);
+  }
+
   const userAgent = request.headers.get('user-agent') || '';
   if (isCrawler(userAgent)) {
     const html = generateRedirectHTML(redirectConfig, request.url);
