@@ -31,10 +31,24 @@ export function findRedirectConfig(
   return redirects.find((r) => r.layout === slug);
 }
 
+function getAbsoluteImageUrl(imagePath: string, requestUrl: string): string {
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+    return imagePath;
+  }
+
+  if (imagePath.startsWith('/')) {
+    const url = new URL(requestUrl);
+    return `${url.protocol}//${url.host}${imagePath}`;
+  }
+
+  return imagePath;
+}
+
 export function generateOGMetaTags(config: RedirectConfig, url: string): string {
-  const imageMeta = config.image
-    ? `<meta property="og:image" content="${config.image}">
-  <meta name="twitter:image" content="${config.image}">`
+  const imageUrl = config.image ? getAbsoluteImageUrl(config.image, url) : null;
+  const imageMeta = imageUrl
+    ? `<meta property="og:image" content="${imageUrl}">
+  <meta name="twitter:image" content="${imageUrl}">`
     : '';
 
   return `<meta charset="utf-8">
