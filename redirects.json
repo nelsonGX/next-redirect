@@ -1,0 +1,15 @@
+[
+  {
+    "layout": "@",
+    "title": "Home | Site Name",
+    "description": "Welcome to our site",
+    "image": "/images/home.jpg",
+    "redirect_to": "https://example.com/home"
+  },
+  {
+    "layout": "youtube",
+    "title": "Youtube!",
+    "description": "the youtube platform",
+    "redirect_to": "https://youtube.com"
+  }
+]
