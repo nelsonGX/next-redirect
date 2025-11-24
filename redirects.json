@@ -11,5 +11,9 @@
     "title": "Youtube!",
     "description": "the youtube platform",
     "redirect_to": "https://youtube.com"
+  },
+  {
+    "layout": "youtube_no_title",
+    "redirect_to": "https://youtube.com"
   }
 ]
