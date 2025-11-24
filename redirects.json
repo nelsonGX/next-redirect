@@ -3,7 +3,7 @@
     "layout": "@",
     "title": "Home | Site Name",
     "description": "Welcome to our site",
-    "image": "/images/home.jpg",
+    "image": "/images/home.png",
     "redirect_to": "https://example.com/home"
   },
   {
